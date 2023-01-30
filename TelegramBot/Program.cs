@@ -10,8 +10,15 @@ namespace Example
     {
         public static void Main()
         {
-            Vehicle transport = new Truck(); // реально создали объект Truck, но забыли переопределить метод Move в Truck
+
+            //Vehicle transport = new Truck(); // реально создали объект Truck, но забыли переопределить метод Move в Truck
+
+            //Варианты вызова метода new Truck().Move()
+            //Truck transport = new Truck(); // явно объявить класс Truck
+            //transport.Move();
+            var transport = new Truck(); // var transport 
             transport.Move();
+            ((Truck)transport).Move(); //Привести объект transport к типу Truck
             Console.ReadKey();
         }
     }
@@ -34,7 +41,7 @@ namespace Example
 
     public class Truck : Car
     {
-        public void Move() // забыли переопределить метод Move
+        public override void Move() // забыли переопределить метод Move
         {
             Console.WriteLine("Truck moving");
         }
