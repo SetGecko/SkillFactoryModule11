@@ -1,49 +1,37 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Example
+namespace TelegramBot
 {
     public static class Program
     {
         public static void Main()
         {
-
-            //Vehicle transport = new Truck(); // реально создали объект Truck, но забыли переопределить метод Move в Truck
-
-            //Варианты вызова метода new Truck().Move()
-            //Truck transport = new Truck(); // явно объявить класс Truck
-            //transport.Move();
-            var transport = new Truck(); // var transport 
-            transport.Move();
-            ((Truck)transport).Move(); //Привести объект transport к типу Truck
+            Vehicle transport = new Truck();
             Console.ReadKey();
         }
     }
 
     public class Vehicle
     {
-        public virtual void Move()
+        protected Vehicle()
         {
-            Console.WriteLine("Moving");
+            Console.WriteLine("Vehicle created");
         }
     }
 
     public class Car : Vehicle
     {
-        public override void Move()
+        protected Car()
         {
-            Console.WriteLine("Car moving");
+            Console.WriteLine("Car created");
         }
     }
 
     public class Truck : Car
     {
-        public override void Move() // забыли переопределить метод Move
+        public Truck()
         {
-            Console.WriteLine("Truck moving");
+            Console.WriteLine("Truck created");
         }
     }
 }
