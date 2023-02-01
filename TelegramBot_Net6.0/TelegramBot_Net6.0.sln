@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.33214.272
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelegramBot_Net6.0", "TelegramBot_Net6.0.csproj", "{D134219E-B549-49FA-860C-6243E8983BED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TelegramBot_Net6.0", "TelegramBot_Net6.0.csproj", "{D134219E-B549-49FA-860C-6243E8983BED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VoiceTexterBot", "..\VoiceTexterBot\VoiceTexterBot.csproj", "{73BDB568-31FD-49A1-8A68-D2950A790E6B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{D134219E-B549-49FA-860C-6243E8983BED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D134219E-B549-49FA-860C-6243E8983BED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D134219E-B549-49FA-860C-6243E8983BED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73BDB568-31FD-49A1-8A68-D2950A790E6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73BDB568-31FD-49A1-8A68-D2950A790E6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73BDB568-31FD-49A1-8A68-D2950A790E6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73BDB568-31FD-49A1-8A68-D2950A790E6B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
