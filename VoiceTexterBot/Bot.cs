@@ -32,5 +32,25 @@ namespace VoiceTexterBot
                 return;
             }
         }
+
+        Task HandleErrorAsync(ITelegramBotClient botClient, Exception exception, CancellationToken cancellationToken)
+        {
+            // Задаем сообщение об ошибке в зависимости от того, какая именно ошибка произошла
+            var errorMessage = exception switch
+            {
+                ApiRequestException apiRequestException
+                    => $"Telegram API Error:\n[{apiRequestException.ErrorCode}]\n{apiRequestException.Message}",
+                _ => exception.ToString()
+            };
+
+            // Выводим в консоль информацию об ошибке
+            Console.WriteLine(errorMessage);
+
+            // Задержка перед повторным подключением
+            Console.WriteLine("Ожидаем 10 секунд перед повторным подключением.");
+            Thread.Sleep(10000);
+
+            return Task.CompletedTask;
+        }
     }
 }
