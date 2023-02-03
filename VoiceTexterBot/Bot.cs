@@ -1,19 +1,31 @@
-﻿using Telegram.Bot;
+﻿using Microsoft.Extensions.Hosting;
+using Telegram.Bot;
 using Telegram.Bot.Exceptions;
-//using Telegram.Bot.Exceptions.Polling;
+//using Telegram.Bot.Extensions.Polling;
+using Telegram.Bot.Polling;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
 
 namespace VoiceTexterBot
 {
-    class Bot
+    internal class Bot : BackgroundService
     {
         private ITelegramBotClient _telegramClient;
 
         public Bot(ITelegramBotClient telegramClient)
         {
             _telegramClient = telegramClient;
-            //Telegram.Bot.Exceptions.;
+        }
+
+        protected override async Task ExecuteAsync(CancellationToken stoppingToken)
+        {
+            _telegramClient.StartReceiving(
+                HandleUpdateAsync,
+                HandleErrorAsync,
+                new ReceiverOptions() { AllowedUpdates = { } }, // Здесь выбираем, какие обновления хотим получать. В данном случае разрешены все
+                cancellationToken: stoppingToken);
+
+            Console.WriteLine("Бот запущен");
         }
 
         async Task HandleUpdateAsync(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
