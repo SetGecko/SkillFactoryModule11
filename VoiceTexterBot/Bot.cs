@@ -22,7 +22,7 @@ namespace VoiceTexterBot
             _telegramClient.StartReceiving(
                 HandleUpdateAsync,
                 HandleErrorAsync,
-                new ReceiverOptions() { AllowedUpdates = { } }, // Здесь выбираем, какие обновления хотим получать. В данном случае разрешены все
+                new ReceiverOptions() { AllowedUpdates = { } }, //Здесь выбираем, какие обновления хотим получать. В данном случае разрешены все
                 cancellationToken: stoppingToken);
 
             Console.WriteLine("Бот запущен");
