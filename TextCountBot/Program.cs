@@ -7,30 +7,25 @@ using Telegram.Bot;
 
 namespace TextCountBot
 {
-    public class Program
+    static class Program
     {
         public static async Task Main()
         {
             Console.OutputEncoding = Encoding.Unicode;
 
-            // Объект, отвечающий за постоянный жизненный цикл приложения
             var host = new HostBuilder()
-                .ConfigureServices((hostContext, services) => ConfigureServices(services)) // Задаем конфигурацию
-                .UseConsoleLifetime() // Позволяет поддерживать приложение активным в консоли
-                .Build(); // Собираем
+                .ConfigureServices((hostContext, services) => ConfigureServices(services))
+                .UseConsoleLifetime()
+                .Build();
 
-            Console.WriteLine("Сервис запущен");
-            // Запускаем сервис
+            Console.WriteLine("Starting Service");
             await host.RunAsync();
-            Console.WriteLine("Сервис остановлен");
+            Console.WriteLine("Service stopped");
         }
 
         static void ConfigureServices(IServiceCollection services)
         {
-            // Регистрируем объект TelegramBotClient c токеном подключения
             services.AddSingleton<ITelegramBotClient>(provider => new TelegramBotClient("6095931565:AAG4iDTNwhC4tvyOTdIZfu6DATMepe-Mm8E"));
-            // -- 6095931565:AAG4iDTNwhC4tvyOTdIZfu6DATMepe-Mm8E -- sokelva_new_bot
-            // Регистрируем постоянно активный сервис бота
             services.AddHostedService<Bot>();
         }
     }
