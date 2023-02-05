@@ -28,7 +28,7 @@ namespace TextCountBot
         static void ConfigureServices(IServiceCollection services)
         {
             // Регистрируем объект TelegramBotClient c токеном подключения
-            services.AddSingleton<ITelegramBotClient>(provider => new TelegramBotClient("5708618031:AAH84iFNG3vFRMnUcCNysvpzyfCRQcjusOo"));
+            services.AddSingleton<ITelegramBotClient>(provider => new TelegramBotClient("6095931565:AAG4iDTNwhC4tvyOTdIZfu6DATMepe-Mm8E"));
             // -- 6095931565:AAG4iDTNwhC4tvyOTdIZfu6DATMepe-Mm8E -- sokelva_new_bot
             // Регистрируем постоянно активный сервис бота
             services.AddHostedService<Bot>();

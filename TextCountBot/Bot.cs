@@ -30,21 +30,8 @@ namespace TextCountBot
 
         async Task HandleUpdateAsync(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
         {
-            //  Обрабатываем нажатия на кнопки  из Telegram Bot API: https://core.telegram.org/bots/api#callbackquery
             if (update.Type == UpdateType.CallbackQuery)
-            {
-                await _telegramClient.SendTextMessageAsync(update.Message.Chat.Id, $"Вы нажали кнопку {update.CallbackQuery.GameShortName}", cancellationToken: cancellationToken);
-                Console.WriteLine($"Вы нажали кнопку {update.CallbackQuery.GameShortName}");
-                return;
-            }
-
-            // Обрабатываем входящие сообщения из Telegram Bot API: https://core.telegram.org/bots/api#message
-            if (update.Type == UpdateType.Message)
-            {
-                await _telegramClient.SendTextMessageAsync(update.Message.Chat.Id, $"Вы отправили сообщение {update.Message.Text}", cancellationToken: cancellationToken);
-                Console.WriteLine($"Вы отправили сообщение {update.Message.Text}");
-                return;
-            }
+                await _telegramClient.SendTextMessageAsync(update.Message.Chat.Id, $"Длина сообщения: {update.Message.Text.Length} знаков", cancellationToken: cancellationToken);
         }
 
         Task HandleErrorAsync(ITelegramBotClient botClient, Exception exception, CancellationToken cancellationToken)
