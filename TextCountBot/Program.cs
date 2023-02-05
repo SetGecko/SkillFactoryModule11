@@ -5,7 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Telegram.Bot;
 
-namespace VoiceTexterBot
+namespace TextCountBot
 {
     public class Program
     {
