@@ -1,5 +1,7 @@
 ﻿using FFMpegCore;
+using VoiceTexterBot.Configuration;
 using VoiceTexterBot.Extensions;
+using VoiceTexterBot.Utilities;
 
 namespace VoiceTexterBot.Utilities
 {
@@ -23,5 +25,7 @@ namespace VoiceTexterBot.Utilities
             var projectRoot = fullname.Substring(0, fullname.Length - 4);
             return Directory.GetParent(projectRoot)?.FullName;
         }
+
+    
     }
 }
