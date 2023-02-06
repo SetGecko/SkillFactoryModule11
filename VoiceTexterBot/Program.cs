@@ -40,17 +40,21 @@ namespace VoiceTexterBot
             services.AddTransient<VoiceMessageController>();
             services.AddTransient<TextMessageController>();
             services.AddTransient<InlineKeyboardController>();
+            services.AddSingleton<IFileHandler, AudioFileHandler>();
 
             services.AddSingleton<ITelegramBotClient>(provider => new TelegramBotClient(appSettings.BotToken));
             services.AddHostedService<Bot>();
         }
 
-
         static AppSettings BuildAppSettings()
         {
             return new AppSettings()
             {
-                BotToken = "5708618031:AAH84iFNG3vFRMnUcCNysvpzyfCRQcjusOo"
+                DownloadsFolder = "C:\\Users\\sokelva",
+                BotToken = "5708618031:AAH84iFNG3vFRMnUcCNysvpzyfCRQcjusOo",
+                AudioFileName = "audio",
+                InputAudioFormat = "ogg",
+                OutputAudioFormat = "wav", // Новое поле
             };
         }
     }

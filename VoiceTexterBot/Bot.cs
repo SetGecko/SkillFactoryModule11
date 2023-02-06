@@ -15,14 +15,14 @@ namespace VoiceTexterBot
         private ITelegramBotClient _telegramClient;
 
         // Контроллеры различных видов сообщений
-        private InLineKeyBoardController _inlineKeyboardController;
+        private InlineKeyboardController _inlineKeyboardController;
         private TextMessageController _textMessageController;
         private VoiceMessageController _voiceMessageController;
         private DefaultMessageController _defaultMessageController;
 
         public Bot(
             ITelegramBotClient telegramClient,
-            InLineKeyBoardController inlineKeyboardController,
+            InlineKeyboardController inlineKeyboardController,
             TextMessageController textMessageController,
             VoiceMessageController voiceMessageController,
             DefaultMessageController defaultMessageController)
