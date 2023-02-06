@@ -39,7 +39,7 @@ namespace VoiceTexterBot
             services.AddTransient<DefaultMessageController>();
             services.AddTransient<VoiceMessageController>();
             services.AddTransient<TextMessageController>();
-            services.AddTransient<InLineKeyBoardController>();
+            services.AddTransient<InlineKeyboardController>();
 
             services.AddSingleton<ITelegramBotClient>(provider => new TelegramBotClient(appSettings.BotToken));
             services.AddHostedService<Bot>();
@@ -50,7 +50,7 @@ namespace VoiceTexterBot
         {
             return new AppSettings()
             {
-                BotToken = "5353047760:AAECHVcGyM-cQJIfA4sCStnGDBPimhlIV-g"
+                BotToken = "5708618031:AAH84iFNG3vFRMnUcCNysvpzyfCRQcjusOo"
             };
         }
     }
