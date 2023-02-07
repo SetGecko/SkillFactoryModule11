@@ -5,7 +5,7 @@ VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VoiceTexterBot", "VoiceTexterBot.csproj", "{A2163AB6-2E54-4A2B-8426-F0E01D24026D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextCountBot", "..\TextCountBot\TextCountBot.csproj", "{B5FF9B61-079A-48A9-B260-F20BA673A86D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TextCountBot", "..\TextCountBot\TextCountBot.csproj", "{B5FF9B61-079A-48A9-B260-F20BA673A86D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

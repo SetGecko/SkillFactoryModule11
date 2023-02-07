@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,7 +13,6 @@ namespace VoiceTexterBot.Configuration
         /// Токен Telegram API
         /// </summary>
         public string BotToken { get; set; }
-
         /// <summary>
         /// Папка загрузки аудио файлов
         /// </summary>
@@ -32,6 +32,6 @@ namespace VoiceTexterBot.Configuration
         /// <summary>
         /// Битрейт аудио при загрузке
         /// </summary>
-        public float InputAudioBitrate { get; set; }
+        public float InputAudioBitrate = 768; //при нуле висит без результата конвертации. 
     }
 }

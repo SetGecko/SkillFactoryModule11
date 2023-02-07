@@ -39,7 +39,7 @@ namespace VoiceTexterBot.Services
 
             Console.WriteLine("Начинаем конвертацию...");
             AudioConverter.TryConvert(inputAudioPath, outputAudioPath);
-            Console.WriteLine("Файл конвертирован");
+            Console.WriteLine("Файл cконвертирован");
 
             Console.WriteLine("Начинаем распознавание...");
             var speechText = SpeechDetector.DetectSpeech(outputAudioPath, _appSettings.InputAudioBitrate, languageCode);

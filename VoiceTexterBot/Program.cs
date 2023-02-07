@@ -41,7 +41,6 @@ namespace VoiceTexterBot
             services.AddTransient<TextMessageController>();
             services.AddTransient<InlineKeyboardController>();
             services.AddSingleton<IFileHandler, AudioFileHandler>();
-
             services.AddSingleton<ITelegramBotClient>(provider => new TelegramBotClient(appSettings.BotToken));
             services.AddHostedService<Bot>();
         }
