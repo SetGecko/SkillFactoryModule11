@@ -14,6 +14,7 @@ namespace VoiceTexterBot.Utilities
             var modelPath = Path.Combine(DirectoryExtension.GetSolutionRoot(), "Speech-models", $"vosk-model-small-{languageCode.ToLower()}");
             Model model = new(modelPath);
             return GetWords(model, audioPath, inputBitrate);
+            //Vosk.Vosk.SetLogLevel(-1);
         }
 
         /// <summary>
@@ -25,6 +26,7 @@ namespace VoiceTexterBot.Utilities
             VoskRecognizer rec = new(model, inputBitrate);
             rec.SetMaxAlternatives(0);
             rec.SetWords(true);
+            Vosk.Vosk.SetLogLevel(-1);
 
             StringBuilder textBuffer = new();
 
