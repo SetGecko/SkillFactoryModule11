@@ -2,7 +2,7 @@
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
 using VoiceTexterBot.Services;
-using VoiceTexterBot.Models;
+
 
 namespace VoiceTexterBot.Controllers
 {
@@ -30,7 +30,7 @@ namespace VoiceTexterBot.Controllers
             OperationText = callbackQuery.Data switch
             {
                 "stringlen" => "Подсчет символов",
-                "division" => "Сложение цифр",
+                "addition" => "Сложение цифр",
                 _ => String.Empty
             };
 
