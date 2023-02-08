@@ -37,11 +37,9 @@ namespace VoiceTexterBot
             services.AddSingleton<IStorage, MemoryStorage>();
 
             // Подключаем контроллеры сообщений и кнопок
-            //services.AddTransient<DefaultMessageController>();
-            //services.AddTransient<VoiceMessageController>();
+            services.AddTransient<DefaultMessageController>();
             services.AddTransient<TextMessageController>();
             services.AddTransient<InlineKeyboardController>();
-            //services.AddSingleton<IFileHandler, AudioFileHandler>();
             services.AddSingleton<ITelegramBotClient>(provider => new TelegramBotClient(appSettings.BotToken));
             services.AddHostedService<Bot>();
         }
@@ -51,7 +49,7 @@ namespace VoiceTexterBot
             return new AppSettings()
             {
                 DownloadsFolder = "C:\\Users\\sokelva",
-                BotToken = "6095931565:AAG4iDTNwhC4tvyOTdIZfu6DATMepe-Mm8E" //SokelvaNewBot
+                BotToken = "6095931565:AAG4iDTNwhC4tvyOTdIZfu6DATMepe-Mm8E" //SokelvaNewBot для проверки
             };
         }
     }

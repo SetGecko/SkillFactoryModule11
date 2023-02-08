@@ -32,6 +32,6 @@ namespace VoiceTexterBot.Configuration
         /// <summary>
         /// Битрейт аудио при загрузке
         /// </summary>
-        public float InputAudioBitrate = 768; //при нуле висит без результата конвертации. 
+        //public float InputAudioBitrate = 768; //при нуле висит без результата конвертации. 
     }
 }

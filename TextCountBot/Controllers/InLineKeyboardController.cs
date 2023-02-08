@@ -22,21 +22,19 @@ namespace VoiceTexterBot.Controllers
                 return;
 
             // Обновление пользовательской сессии новыми данными
-            _memoryStorage.GetSession(callbackQuery.From.Id).LanguageCode = callbackQuery.Data;
+            _memoryStorage.GetSession(callbackQuery.From.Id).operationText = callbackQuery.Data;
 
             // Генерим информационное сообщение
-            string languageText = callbackQuery.Data switch
+            string operationText = callbackQuery.Data switch
             {
-                "ru" => " Русский",
-                "en" => " Английский",
-                "fr" => " Французский", // 1 
+                "stringlen" => " Подсчет символов",
+                "division" => " Сложение цифр",
                 _ => String.Empty
             };
 
             // Отправляем в ответ уведомление о выборе
             await _telegramClient.SendTextMessageAsync(callbackQuery.From.Id,
-                $"<b>Язык аудио - {languageText}.{Environment.NewLine}</b>" +
-                $"{Environment.NewLine}Можно поменять в главном меню.", cancellationToken: ct, parseMode: ParseMode.Html);
+                $"<b>Введите сообщение для {operationText}.{Environment.NewLine}</b>", cancellationToken: ct, parseMode: ParseMode.Html);
         }
     }
 }

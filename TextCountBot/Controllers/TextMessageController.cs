@@ -24,18 +24,17 @@ namespace VoiceTexterBot.Controllers
                     var buttons = new List<InlineKeyboardButton[]>();
                     buttons.Add(new[]
                     {
-                        InlineKeyboardButton.WithCallbackData($" Русский" , $"ru"),
-                        InlineKeyboardButton.WithCallbackData($" English" , $"en"),
-                        InlineKeyboardButton.WithCallbackData($" Français", $"fr")
+                        InlineKeyboardButton.WithCallbackData($" Подсчет символов" , $"stringlen"),
+                        InlineKeyboardButton.WithCallbackData($" Сложение" , $"en")
                     });
 
                     // передаем кнопки вместе с сообщением (параметр ReplyMarkup)
-                    await _telegramClient.SendTextMessageAsync(message.Chat.Id, $"<b>  Наш бот превращает аудио в текст.</b> {Environment.NewLine}" +
-                        $"{Environment.NewLine}Можно записать сообщение и переслать другу, если лень печатать.{Environment.NewLine}", cancellationToken: ct, parseMode: ParseMode.Html, replyMarkup: new InlineKeyboardMarkup(buttons));
+                    await _telegramClient.SendTextMessageAsync(message.Chat.Id, $"<b> Наш бот умеет считать длину строки \nи складывать числа.</b> {Environment.NewLine}",
+                        cancellationToken: ct, parseMode: ParseMode.Html, replyMarkup: new InlineKeyboardMarkup(buttons));
 
                     break;
                 default:
-                    await _telegramClient.SendTextMessageAsync(message.Chat.Id, "Отправьте аудио для превращения в текст.", cancellationToken: ct);
+                    await _telegramClient.SendTextMessageAsync(message.Chat.Id, "Отправьте сообщение для выбранной операции.", cancellationToken: ct);
                     break;
             }
         }
