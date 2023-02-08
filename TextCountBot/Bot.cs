@@ -17,20 +17,17 @@ namespace TextCountBot
         // Контроллеры различных видов сообщений
         private InlineKeyboardController _inlineKeyboardController;
         private TextMessageController _textMessageController;
-        //private VoiceMessageController _voiceMessageController;
         private DefaultMessageController _defaultMessageController;
 
         public Bot(
             ITelegramBotClient telegramClient,
             InlineKeyboardController inlineKeyboardController,
             TextMessageController textMessageController,
-            //VoiceMessageController voiceMessageController,
             DefaultMessageController defaultMessageController)
         {
             _telegramClient = telegramClient;
             _inlineKeyboardController = inlineKeyboardController;
             _textMessageController = textMessageController;
-            //_voiceMessageController = voiceMessageController;
             _defaultMessageController = defaultMessageController;
         }
 
@@ -58,22 +55,27 @@ namespace TextCountBot
             if (update.Type == UpdateType.CallbackQuery)
             {
                 await _inlineKeyboardController.Handle(update.CallbackQuery, cancellationToken);
+                // сюда добавить обработку сообщения
+
+                //// Обрабатываем входящие сообщения из Telegram Bot API: https://core.telegram.org/bots/api#message
+                //if (update.Type == UpdateType.Message)
+                //{
+                //    switch (update.Message!.Type)
+                //    {
+                //        case MessageType.Text:
+                //            await _telegramClient.SendTextMessageAsync(update.Message.From.Id, $"Длина сообщения: {update.Message.Text.Length} знаков", cancellationToken: cancellationToken);
+                //            return;
+                //        default: // unsupported message
+                //            await _telegramClient.SendTextMessageAsync(update.Message.From.Id, $"Данный тип сообщений не поддерживается. Пожалуйста отправьте текст.", cancellationToken: cancellationToken);
+                //            return;
+                //    }
+                //}
+
                 return;
             }
 
-            //// Обрабатываем входящие сообщения из Telegram Bot API: https://core.telegram.org/bots/api#message
-            //if (update.Type == UpdateType.Message)
-            //{
-            //    switch (update.Message!.Type)
-            //    {
-            //        case MessageType.Text:
-            //            await _telegramClient.SendTextMessageAsync(update.Message.From.Id, $"Длина сообщения: {update.Message.Text.Length} знаков", cancellationToken: cancellationToken);
-            //            return;
-            //        default: // unsupported message
-            //            await _telegramClient.SendTextMessageAsync(update.Message.From.Id, $"Данный тип сообщений не поддерживается. Пожалуйста отправьте текст.", cancellationToken: cancellationToken);
-            //            return;
-            //    }
-            //}
+
+
             // Обрабатываем входящие сообщения из Telegram Bot API: https://core.telegram.org/bots/api#message
             if (update.Type == UpdateType.Message)
             {

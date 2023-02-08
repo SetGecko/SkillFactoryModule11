@@ -2,6 +2,7 @@
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
 using VoiceTexterBot.Services;
+using VoiceTexterBot.Models;
 
 namespace VoiceTexterBot.Controllers
 {
@@ -9,6 +10,7 @@ namespace VoiceTexterBot.Controllers
     {
         private readonly IStorage _memoryStorage;
         private readonly ITelegramBotClient _telegramClient;
+        public static string OperationText;
 
         public InlineKeyboardController(ITelegramBotClient telegramBotClient, IStorage memoryStorage)
         {
@@ -25,16 +27,16 @@ namespace VoiceTexterBot.Controllers
             _memoryStorage.GetSession(callbackQuery.From.Id).operationText = callbackQuery.Data;
 
             // Генерим информационное сообщение
-            string operationText = callbackQuery.Data switch
+            OperationText = callbackQuery.Data switch
             {
-                "stringlen" => " Подсчет символов",
-                "division" => " Сложение цифр",
+                "stringlen" => "Подсчет символов",
+                "division" => "Сложение цифр",
                 _ => String.Empty
             };
 
             // Отправляем в ответ уведомление о выборе
             await _telegramClient.SendTextMessageAsync(callbackQuery.From.Id,
-                $"<b>Введите сообщение для {operationText}.{Environment.NewLine}</b>", cancellationToken: ct, parseMode: ParseMode.Html);
+                $"<b>Введите сообщение для {OperationText}.{Environment.NewLine}</b>", cancellationToken: ct, parseMode: ParseMode.Html);
         }
     }
 }
